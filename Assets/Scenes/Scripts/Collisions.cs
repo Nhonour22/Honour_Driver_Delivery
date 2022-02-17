@@ -2,18 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collision : MonoBehaviour
-{   
-    
+public class Delivery : MonoBehaviour
+{
     [SerializeField] float destroyDelay = 0.5f;
     bool hasPackage;
-     void OnCollisionEnter2D(Collision2D other) 
+    
+    
+    
+    private void Start(){
+      
+    }
+    private void OnCollisionEnter2D(Collision2D other) 
     {
       Debug.Log("Ouch");  
     }
 
-     void OnTriggerEnter2D(Collider2D other) 
+    private void OnTriggerEnter2D(Collider2D other) 
     {
+     
       if (other.tag == "Package" && !hasPackage)
       {
         Debug.Log("Package picked up");
@@ -25,7 +31,6 @@ public class Collision : MonoBehaviour
         Debug.Log("Package Delivered");
         hasPackage = false;
         }
-    
     
     }
 
